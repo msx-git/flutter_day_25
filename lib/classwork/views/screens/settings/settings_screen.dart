@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import '../../../notifiers/settings_notifier.dart';
-import '../home/home_screen.dart';
+import '../../widgets/app_drawer.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -15,31 +13,7 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Settings'),
       ),
-      drawer: Drawer(
-        child: DrawerHeader(
-          child: Column(
-            children: [
-              const Text('Menyu'),
-              ListTile(
-                onTap: () => Navigator.of(context).pushReplacement(
-                  CupertinoPageRoute(
-                    builder: (context) => const HomeScreen(),
-                  ),
-                ),
-                title: const Text('Home'),
-              ),
-              ListTile(
-                onTap: () => Navigator.of(context).pushReplacement(
-                  CupertinoPageRoute(
-                    builder: (context) => const SettingsScreen(),
-                  ),
-                ),
-                title: const Text('Settings'),
-              )
-            ],
-          ),
-        ),
-      ),
+      drawer: const AppDrawer(),
       body: Column(
         children: [
           ListenableBuilder(
